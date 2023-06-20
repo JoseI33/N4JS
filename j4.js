@@ -161,21 +161,108 @@ Por último, indicar cuál de los 2 objetos “libros” tiene más páginas.*/
         this.paginas = paginas;
     }
 
-    get ISBN2(){
-        return this.ISBN;
+    get ISBN(){
+        return this._ISBN;
     }
-    set ISBN2(ISBN2) {
-        this.ISBN = ISBN2;
-    }
-    get titulo(){
-        return this.titulo;
-    }
-    set titulo2(titulo2){
-        this.titulo = tiulo2;
-    }
-    get autor(){
 
+    set ISBN(nuevoISBN) {
+        this._ISBN = nuevoISBN;
     }
-       
 
+    get titulo () {
+        return this._titulo;
+    }
+
+    set titulo(nuevoTitulo) {
+        this._titulo = nuevoTitulo
+    }
+
+    get autor () {
+        return this._autor;
+    }
+
+    set autor (nuevoAutor) {
+        this._autor = nuevoAutor;
+    }
+
+    get paginas () {
+        return this._paginas;
+    }
+
+    set paginas (totalDePaginas) {
+        this._paginas = totalDePaginas;
+    }
+
+    mostrarLibros () {
+        console.log(`El libro ${this.titulo} con ISBN ${this.ISBN} creado por el autor ${this.autor} tiene ${this.paginas} páginas.`);
+      //  “El libro xxx con ISBN xxx creado por el autor xxx tiene xxx páginas. ”
+    }
+}
+
+let libro1 = new libro (234567885, "Martin Fierro", "José Hernandez", 230);
+let libro2 = new libro (334542345, "Javascript modulo 2", "Pablo Marino", 200);
+
+if (libro1.paginas > libro2.paginas) {
+    console.log(`Ei libro1 tiene mayor cantidad de páginas.`);
+} else {
+    console.log(`El libro2 tiene mayor cantidad de páginas.`);
 }*/
+
+/*7- Nos piden realizar una agenda telefónica de contactos.
+
+Un contacto está definido por un nombre y un teléfono. Se considera que un contacto es igual a otro cuando sus nombres son iguales.
+
+Una agenda de contactos está formada por un conjunto de contactos. Se podrá crear de dos formas, indicando nosotros el tamaño o con un tamaño por defecto (10).
+
+Los métodos de la agenda serán los siguientes:
+
+aniadirContacto(Contacto): Añade un contacto a la agenda, sino la agenda no puede almacenar más contactos indicar por pantalla.
+existeContacto(Contacto): indica si el contacto pasado existe o no.
+listarContactos(): Lista toda la agenda
+buscarContacto(nombre): busca un contacto por su nombre y muestra su teléfono.
+eliminarContacto(Contacto c): elimina el contacto de la agenda, indica si se ha eliminado o no por pantalla
+agendaLlena(): indica si la agenda está llena.
+huecosLibres(): indica cuántos contactos más podemos ingresar.
+
+Crea un menú con opciones que serán seleccionadas por el usuario usando un prompt, las salidas de las operaciones seleccionadas por el usuario se pueden mostrar en pantalla y  por consola.*/
+
+/*class contacto {
+    constructor(nombre, telefono) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+    }
+    contactoigual(contacto2) {
+        return this.nombre === this.contacto2;
+        }
+}
+
+class agenda {
+    constructor(tamaño = 10) {
+        this.contactos = [];
+        this.tamaño = tamaño;
+    }
+    añadirContacto() {
+        if(this.contactos < this.tamaño) {
+            prompt("Añade un contacto.")
+        } else {
+            prompt("No se puede alamacenar mas contactos.")
+        }
+    }
+    existeContacto(){
+
+    }
+    listarContacto() {
+
+    }
+    eliminarContacto() {
+
+    }
+    agendaLlena() {
+
+    }
+    huecosLibres () {
+
+    }
+    
+
+}*/ //En proceso...
