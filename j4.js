@@ -1,3 +1,4 @@
+
 /*1- Crea un objeto llamado auto que tenga algunas caracteristicas como el color, marca, modelo y si está encendido o apagado. Crea los métodos necesarios para permitir encender y apagar el auto. Crea los metodos para permitir encender y apagar el auto.
 
 function Auto (color, marca, modelo, encedido, apagado) {
@@ -226,43 +227,117 @@ huecosLibres(): indica cuántos contactos más podemos ingresar.
 
 Crea un menú con opciones que serán seleccionadas por el usuario usando un prompt, las salidas de las operaciones seleccionadas por el usuario se pueden mostrar en pantalla y  por consola.*/
 
-/*class contacto {
+/*class Contacto {
     constructor(nombre, telefono) {
         this.nombre = nombre;
         this.telefono = telefono;
     }
-    contactoigual(contacto2) {
-        return this.nombre === this.contacto2;
-        }
+
 }
 
-class agenda {
+class Agenda {
     constructor(tamaño = 10) {
         this.contactos = [];
         this.tamaño = tamaño;
     }
-    añadirContacto() {
-        if(this.contactos < this.tamaño) {
-            prompt("Añade un contacto.")
-        } else {
-            prompt("No se puede alamacenar mas contactos.")
+
+}
+
+    contactoIgual(nombre) {
+        for (const igualContactos of this.contactos) {
+            if (igualContactos.nombre === nombre) {
+                console.log("Ya existe el contacto.");
+            }
         }
-    }
-    existeContacto(){
+            console.log("No existe el contacto.");
+        }
 
+    añadirContacto(nuevoContactos)  {
+        if (this.contactos.length <= this.tamaño) {
+            if (!this.contactoIgual(nuevoContactos.nombre)) {
+                this.contactos.push(nuevoContactos) 
+                console.log("Contacto agregado con exito.");
+            } else {
+            console.log("El contacto ya existe.");
+          }
+    } else {
+        console.log("La agenda está llena.");
     }
-    listarContacto() {
-
-    }
-    eliminarContacto() {
-
-    }
-    agendaLlena() {
-
-    }
-    huecosLibres () {
-
+}
+    
+    existeContacto(nombre) {
+        if (this.contactoIgual(nombre)) {
+            console.log("Ya existe.");
+         } else {
+            console.log("El contacto no existe.");
+         }
     }
     
+    listarContacto() {
+        for (const contactos3 of this.contactos) {
+            console.log(`Nombre: ${contactos3.nombre}, Telefono: ${contactos3.telefono}`);
+    }
+        }
+    eliminarContacto() { 
+        if (this.contactos.length > 0) {
+            const contactoEliminado = this.contactos.pop();
+            console.log(`Contacto eliminado: ${contactoEliminado.nombre}, ${contactoEliminado.telefono}`);
+        } else {
+            console.log("La agenda está vacia.");
+        }
+    }
 
-}*/ //En proceso...
+    agendaLlena() { 
+        if (this.contactos.length === this.tamaño) {
+            console.log("La agenda está llena.");
+        } else {
+            console.log("La agenda no está llena.");
+        }
+    }
+
+    huecosLibres () { 
+        const huecos = this.tamaño - this.contactos.length;
+       console.log(`Hay espacio libres en la agenda: ${huecos}`);
+    } 
+
+function opcionesMenu() {
+
+    const agendaNueva = new Agenda ();
+
+   while (true) {
+
+    let opciones = prompt("Registro de contactos: \n 1) Añadir contacto. \n 2) Verfica si existe el contacto. \n 3) Elimina contacto. \n 4) Listado de la agenda. \n 5) Agenda llena. \n 6) Huecos libres.");
+    
+       switch (opciones) {
+           case "1": // listo.
+               let nombre = prompt("Ingrese el nombre del contacto: ");
+               let telefono = prompt("Ingrese el numero del telefono: ");
+               let nuevoContacto = new  Contacto (nombre, telefono);
+                agendaNueva.añadirContacto(nuevoContacto);
+               break;
+           case "2": // listo.
+               let verficarContacto = prompt("Ingrese el nombre del contacto: ")
+               agendaNueva.existeContacto(verficarContacto);
+                break;
+           case "3": // listo.
+               agendaNueva.eliminarContacto();
+               break;
+               case "4": // listo.
+               agendaNueva.listarContacto(); 
+               break;
+           case "5": // listo.
+               agendaNueva.agendaLlena();
+               break;
+            case "6": // listo.
+                agendaNueva.huecosLibres();
+                break;
+           default:
+               alert("Numero ingresado invalido.")
+               break;
+       }
+   }
+
+}
+
+opcionesMenu();*/
+
